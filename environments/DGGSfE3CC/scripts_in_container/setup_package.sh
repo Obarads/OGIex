@@ -25,5 +25,5 @@ pip install .
 cd /workspace
 pip install ./simple-knn
 
-# add dreamgaussian
+# add conda env
 echo "conda activate dreamgaussian" >> ~/.bashrc

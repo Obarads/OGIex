@@ -13,18 +13,8 @@ RUN apt-get update && \
     libgl1-mesa-dev \
     libglib2.0-0 \
     wget \
-    libglew-dev \
-    libassimp-dev \
-    libboost-all-dev \
-    libgtk-3-dev \
-    libopencv-dev \
-    libglfw3-dev \
-    libavdevice-dev \
-    libavcodec-dev \
-    libeigen3-dev \
-    libxxf86vm-dev \
-    libembree-dev \
     unzip && \
+    # cmake build-essential pkg-config libgoogle-perftools-dev && \ 
     rm -rf /var/lib/apt/lists/*
 
 # Workdirectory setting
@@ -48,3 +38,4 @@ RUN wget https://repo.anaconda.com/miniconda/${MINICONDA3_SH_FILE} --no-check-ce
     sh ${MINICONDA3_SH_FILE} -b && \
     rm ${MINICONDA3_SH_FILE} && \
     ~/miniconda3/bin/conda init bash
+
