@@ -10,11 +10,10 @@ RUN apt-get update && \
     sudo \
     git \
     curl \
-    libgl1-mesa-dev \
-    libglib2.0-0 \
     wget \
+    libglib2.0-0 \
+    libgl1-mesa-dev \
     unzip && \
-    # cmake build-essential pkg-config libgoogle-perftools-dev && \ 
     rm -rf /var/lib/apt/lists/*
 
 # Workdirectory setting
