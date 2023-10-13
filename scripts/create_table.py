@@ -118,7 +118,7 @@ def main():
             github_dir_name = github_url.split("/")[-1]
             official_or_unofficial_code = check_official_code(info_data[3][1].split(": ")[1])
 
-            list_data.append([github_dir_name, f"[{official_or_unofficial_code}]({github_url})", title])
+            list_data.append([f"[{github_dir_name}](./environments/{github_dir_name})", f"[{official_or_unofficial_code}]({github_url})", title])
 
     list_data = sorted(list_data, key=lambda x: x[0])
 
