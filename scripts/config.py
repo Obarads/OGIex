@@ -1,4 +1,4 @@
 available_script_list = [
-    "dreamfields",
+    "dreamgaussian",
     "gaussian-splatting",
 ]

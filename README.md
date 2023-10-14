@@ -14,5 +14,5 @@ The list of available scripts is below. `Dirname`, `Code`, and `Paper` columns d
 
 | Dirname | Code | Paper |
 | --- | --- | --- |
-| [dreamfields](./environments/dreamfields) | [Official](https://github.com/google-research/google-research/tree/master/dreamfields) | [Zero-Shot Text-Guided Object Generation with Dream Fields](https://arxiv.org/abs/2112.01455) |
+| [dreamgaussian](./environments/dreamgaussian) | [Official](https://github.com/dreamgaussian/dreamgaussian) | [DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation](https://arxiv.org/abs/2309.16653) |
 | [gaussian-splatting](./environments/gaussian-splatting) | [Official](https://github.com/graphdeco-inria/gaussian-splatting) | [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://arxiv.org/abs/2308.04079) |
