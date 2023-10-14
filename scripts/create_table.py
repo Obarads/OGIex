@@ -2,6 +2,7 @@ import glob
 import os
 import re
 from typing import List
+import config
 
 INFO_SECTION = r"\n## ℹ️ Info"
 SETUP_SECTION = r"\n## 🖥️ Setup commands to run the implementation"
@@ -137,7 +138,7 @@ def main():
     list_data = []
     for file_path in file_paths:
         s = Structuring(file_path)
-        if "Paper" in s.info:
+        if "Paper" in s.info and s.info["Implementation"]["Basename"] in config.available_script_list:
             list_data.append(
                 [
                     f"[{s.info['Implementation']['Basename']}](./environments/{s.info['Implementation']['Basename']})",
