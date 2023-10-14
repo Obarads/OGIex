@@ -3,52 +3,11 @@ import os
 import re
 from typing import List
 
-#### Existing coda : Start ####
-def get_num_space_for_indentation(text: str):
-    return len(text) - len(text.lstrip())
-
-def exist_list(text):
-    if len(text) == 0:
-        return False
-
-    num_space = get_num_space_for_indentation(text)
-    return text[num_space : num_space + 2] == "- "
-
-def markdow_to_list(raw_list, min_space_indentation):
-    res_list = []
-
-    prev_space_indentation = 0
-    for raw in raw_list:
-        if not exist_list(raw):
-            break
-        current_space_indentation = get_num_space_for_indentation(raw)
-        diff_space_indentation = current_space_indentation - prev_space_indentation
-        new_content = raw[current_space_indentation + 2 :]
-        if diff_space_indentation == 0 or (
-            diff_space_indentation < 0
-            and (diff_space_indentation % min_space_indentation) == 0
-        ):
-            indentation = int(current_space_indentation / min_space_indentation)
-            sub_res_list = res_list
-            for i in range(indentation):
-                sub_res_list = sub_res_list[-1]
-            sub_res_list.append(new_content)
-        elif diff_space_indentation == min_space_indentation:
-            indentation = int(current_space_indentation / min_space_indentation)
-            sub_res_list = res_list
-            for i in range(indentation - 1):
-                sub_res_list = sub_res_list[-1]
-            sub_res_list.append([new_content])
-        else:
-            raise ValueError("Invalid indentation")
-
-        prev_space_indentation = current_space_indentation
-
-    return res_list
-
-ELEMENT_INFO = "ℹ️ Info"
-
-#### Existing coda : End ####
+INFO_SECTION = r"\n## ℹ️ Info"
+SETUP_SECTION = r"\n## 🖥️ Setup commands to run the implementation"
+SETUP_WIP_SECTION = r"\n## 🖥️ \(WIP\) Setup commands to run the implementation"
+CLIP_SECTION = r"\n## 📝 Clipping and note"
+REFERENCE_SECTION = r"\n## 📚 References"
 
 def list_to_markdown_table(list_data, header_list):
     markdown_table = "| " + " | ".join(header_list) + " |\n"
@@ -59,19 +18,115 @@ def list_to_markdown_table(list_data, header_list):
 
     return markdown_table
 
-def extract_parentheses_contents(text):
-    pattern = re.compile(r'\((.*?)\)')
-    contents = pattern.findall(text)
-    return contents
+class Structuring:
+    def __init__(self, file_path: str):
+        self.file_path = file_path
+        with open(file_path, "r") as f:
+            raw_text = f.read()
 
-def check_official_code(text):
-    if text == "Yes":
-        official_or_unofficial_code = "Official"
-    elif text == "No":
-        official_or_unofficial_code = "Unofficial"
-    else:
-        raise ValueError(f"Invalid official code format: {text}")
-    return official_or_unofficial_code
+        self.title = raw_text.split("\n")[0].replace("# ", "").replace("'", "\\'")
+
+        info_section_index = self.get_section_index(raw_text, INFO_SECTION)
+        setup_section_index = self.get_section_index(raw_text, SETUP_SECTION)
+        if setup_section_index is None:
+            setup_section_index = self.get_section_index(raw_text, SETUP_WIP_SECTION)
+        # clip_section_index = self.get_section_index(raw_text, CLIP_SECTION)
+        # reference_section_index = self.get_section_index(raw_text, REFERENCE_SECTION)
+
+        info_section_data = raw_text[info_section_index:setup_section_index]
+        # setup_section_data = raw_text[setup_section_index:clip_section_index]
+        # clip_section_data = raw_text[clip_section_index:reference_section_index]
+        # reference_section_data = raw_text[reference_section_index:]
+
+        self.info = self.convert_notation(self.extract_info(info_section_data))
+
+    @staticmethod
+    def get_section_index(text: str, section: str):
+        pattern = re.compile(section)
+        match = pattern.search(text)
+        if match:
+            section_index = match.start()
+        else:
+            section_index = None
+        return section_index
+
+    @staticmethod
+    def extract_info(text, min_space_indentation=2):
+        lines = text.split("\n")
+        parsed_info = []
+        current_dict = {}
+
+        for line in lines:
+            if line.startswith(
+                "- "
+            ):  # Major category (e.g., Paper, Implementation, Keywords)
+                if (
+                    current_dict
+                ):  # If not the first entry, append the previous dict to the list
+                    parsed_info.append(current_dict)
+                current_dict = {}
+                # Extracting major category and its content using regular expression
+                m = re.match(r"- (.+): \[(.+)\]\((.+)\)", line)
+                if m:  # Match found, i.e., line has link
+                    key, name, url = m.groups()
+                    current_dict[key] = {"Name": name, "URL": url}
+                else:  # Match not found, i.e., line doesn't have link
+                    key, content = line[2:].split(": ")
+                    current_dict[key] = content.split(", ")
+            elif line.startswith(
+                "  - "
+            ):  # Sub-category (e.g., Authors, Conf., framework)
+                key, content = line[4:].split(": ")
+                # Store the sub-category content into the current dict
+                current_dict[key] = content.split(", ") if "," in content else content
+
+        # Append the last dict
+        if current_dict:
+            parsed_info.append(current_dict)
+
+        # format the info
+        info_dict = {}
+        if "Paper" in parsed_info[0]:
+            info_dict["Paper"] = parsed_info[0]
+        elif "Document" in parsed_info[0]:
+            info_dict["Document"] = parsed_info[0]
+        else:
+            raise ValueError(f"Invalid info format: {text}")
+
+        info_dict["Implementation"] = parsed_info[1]
+        info_dict["Keywords"] = parsed_info[2]
+
+        return info_dict
+
+    @staticmethod
+    def convert_notation(info_dict):
+        if "Paper" in info_dict:
+            # Official or unofficial code
+            if info_dict["Implementation"]["Official code"] == "Yes":
+                info_dict["Implementation"]["Official code"] = "Official"
+            elif info_dict["Implementation"]["Official code"] == "No":
+                info_dict["Implementation"]["Official code"] = "Unofficial"
+            else:
+                raise ValueError(
+                    f"Invalid official code format: {info_dict['Implementation']['Official code']}"
+                )
+            
+            # Paper
+            info_dict["Paper"] |= info_dict["Paper"].pop("Paper")
+        elif "Document" in info_dict:
+            # Document
+            info_dict["Document"] |= info_dict["Document"].pop("Document")
+            info_dict["Document"]["Official code"] = "Official"
+        else:
+            raise ValueError(f"Invalid info format: {info_dict}")
+
+        # Implementation
+        info_dict["Implementation"] |= info_dict["Implementation"].pop("Implementation")
+        info_dict["Implementation"]["Basename"] = os.path.basename(
+            info_dict["Implementation"]["URL"]
+        )
+
+        return info_dict
 
 def main():
     ogi_dir_path = os.environ.get("OGI_DIR_PATH")
@@ -79,54 +134,21 @@ def main():
 
     list_data = []
 
+    list_data = []
     for file_path in file_paths:
-        with open(file_path, "r") as f:
-            content = f.read()
-            content_by_section = content.split("## ")
-
-        # get title
-        title: str = None
-        title_row = content.split("\n")[0]
-        if "# " in title_row:
-            title = title_row.replace("# ", "").replace("'", "\\'")
-        else:
-            raise ValueError(f"Not found title (#): {file_path}")
-
-        # re-format
-        content_dict = {c.split("\n")[0]: c.split("\n")[1:] for c in content_by_section}
-        if ELEMENT_INFO in content_dict.keys():
-            space_indentation_list = []
-            for text in content_dict[ELEMENT_INFO]:
-                if get_num_space_for_indentation(text) != 0:
-                    space_indentation_list.append(get_num_space_for_indentation(text))
-
-            if len(space_indentation_list) > 0:
-                min_space_indentation = min(space_indentation_list)
-            else:
-                raise ValueError(f"Invalid info format (## ℹ️ Info): {file_path}")
-
-            info_data = markdow_to_list(
-                content_dict[ELEMENT_INFO], min_space_indentation
+        s = Structuring(file_path)
+        if "Paper" in s.info:
+            list_data.append(
+                [
+                    f"[{s.info['Implementation']['Basename']}](./environments/{s.info['Implementation']['Basename']})",
+                    f"[{s.info['Implementation']['Official code']}]({s.info['Implementation']['URL']})",
+                    f"[{s.title}]({s.info['Paper']['URL']})",
+                ]
             )
-        else:
-            raise ValueError(f"Invalid info format (## {ELEMENT_INFO}): {file_path}")
-
-        if "Document" in info_data[0]:
-            pass
-        else:
-            github_url = extract_parentheses_contents(info_data[2])[0]
-            github_dir_name = github_url.split("/")[-1]
-            official_or_unofficial_code = check_official_code(info_data[3][1].split(": ")[1])
-
-            list_data.append([f"[{github_dir_name}](./environments/{github_dir_name})", f"[{official_or_unofficial_code}]({github_url})", title])
 
     list_data = sorted(list_data, key=lambda x: x[0])
-
-    header_list = ["Dirname", "Code", "Paper"]
-    markdown_table = list_to_markdown_table(list_data, header_list)
-    print(markdown_table)
+    print(list_to_markdown_table(list_data, ["Dirname", "Code", "Paper"]))
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
