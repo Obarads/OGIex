@@ -2,6 +2,9 @@
 ## Demo abstract
 dreamgaussian predicts 3D data (Output) from single image (Input).
 
+## Demo enviroment
+- GPU: RTX2080Ti
+
 ## Demo process
 1. Build a docker image and container, and then start the container on Host machine bash:
     ```bash
