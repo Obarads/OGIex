@@ -3,7 +3,7 @@
 ![tested](https://img.shields.io/badge/Tested_on-Ubuntu-red?style=flat-square)
 ![License](https://img.shields.io/github/license/Obarads/OGIex?color=green&style=flat-square)
 
-OGIex are scripts from building a docker image to running a demo of paper implementations by two commands.
+OGIex are scripts from building a docker image to running a demo of paper implementations by three or fewer commands.
 
 ## How to use
 1. Select a script dir in the `environments` dir.
