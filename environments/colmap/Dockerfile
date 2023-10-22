@@ -44,7 +44,7 @@ ENV LC_ALL=C
 
 RUN git clone https://github.com/colmap/colmap.git
 RUN cd colmap && \
-    git reset --hard ${COLMAP_VERSION} && \
+    git switch -d 43de802cfb3ed2bd155150e7e5e3e8c8dd5aaa3e && \
     mkdir build && \
     cd build && \
     cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCHITECTURES} && \

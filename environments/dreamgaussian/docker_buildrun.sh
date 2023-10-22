@@ -11,4 +11,9 @@ else
     docker exec ${CONTAINER_NAME} mkdir /workspace/data_dev/
     docker cp scripts_in_container ${CONTAINER_NAME}:/workspace/
     docker exec ${CONTAINER_NAME} bash /workspace/scripts_in_container/setup_package.sh
+
+    # download example data
+    mkdir -p data
+    wget https://raw.githubusercontent.com/dreamgaussian/dreamgaussian/main/data/test.png
+    mv test.png data/
 fi

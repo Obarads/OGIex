@@ -10,9 +10,12 @@ gaussian-splatting outputs trained model (Output) from multi-view images (Input)
     ```bash
     bash docker_buildrun.sh
     ```
-3. Train a model from multi-view images on Host machine bash:
+2. Train a model from multi-view images on Host machine bash:
     ```bash
     bash train.sh <image dir path> <output dir path>
-    # ex: bash train.sh assets outputs/
+    # ex: bash train.sh data/train outputs/
     ```
-
+3. View the result with the trained model:
+    ```bash
+    bash viewer.sh <trained model path>
+    ```

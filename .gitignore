@@ -162,3 +162,7 @@ cython_debug/
 # Other
 containers/
 .vscode/
+*.zip
+
+environments/gaussian-splatting/data
+outputs/

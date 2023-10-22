@@ -13,6 +13,7 @@ RUN apt-get update && \
     libgl1-mesa-dev \
     libglib2.0-0 \
     wget \
+    cmake \
     libglew-dev \
     libassimp-dev \
     libboost-all-dev \

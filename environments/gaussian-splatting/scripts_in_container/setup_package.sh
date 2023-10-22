@@ -17,3 +17,7 @@ pip install -e .
 
 # add conda env
 echo "conda activate gaussian-splatting" >> ~/.bashrc
+
+cd /workspace/SIBR_viewers
+cmake -Bbuild . -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j24 --target install

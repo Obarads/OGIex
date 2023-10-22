@@ -20,4 +20,11 @@ else
     docker build . -t ${COLMAP_IMAGE_NAME} -f ../colmap/Dockerfile --build-arg UID=$(id -u) --build-arg GID=$(id -g)
     docker run -dit --name ${COLMAP_CONTAINER_NAME} --gpus all ${COLMAP_IMAGE_NAME}
     docker cp ../colmap/scripts_in_container ${COLMAP_CONTAINER_NAME}:/workspace/
+
+    # download example data
+    wget https://repo-s am.inria.fr/fungraph/3d-gaussian-splatting/datasets/input/tandt_db.zip
+    mkdir -p data/original
+    unzip tandt_db.zip -d data/original
+    mkdir -p data/truck
+    cp -r data/original/tandt/truck/images/* data/truck
 fi
