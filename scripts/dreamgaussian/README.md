@@ -20,3 +20,6 @@ dreamgaussian predicts 3D data (Output) from single image (Input).
     bash image_to_mesh.sh <image path> <output dir path>
     # ex: bash image_to_mesh.sh data/test_rgba.png outputs/cube
     ```
+
+## Note
+None
