@@ -9,6 +9,8 @@ SETUP_SECTION = r"\n## 🖥️ Setup commands to run the implementation"
 SETUP_WIP_SECTION = r"\n## 🖥️ \(WIP\) Setup commands to run the implementation"
 CLIP_SECTION = r"\n## 📝 Clipping and note"
 REFERENCE_SECTION = r"\n## 📚 References"
+DOCS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../docs"))
+
 
 def list_to_markdown_table(list_data, header_list):
     markdown_table = "| " + " | ".join(header_list) + " |\n"
@@ -18,6 +20,7 @@ def list_to_markdown_table(list_data, header_list):
         markdown_table += "| " + " | ".join(data) + " |\n"
 
     return markdown_table
+
 
 class Structuring:
     def __init__(self, file_path: str):
@@ -52,7 +55,7 @@ class Structuring:
         return section_index
 
     @staticmethod
-    def extract_info(text, min_space_indentation=2):
+    def extract_info(text):
         lines = text.split("\n")
         parsed_info = []
         current_dict = {}
@@ -111,7 +114,7 @@ class Structuring:
                 raise ValueError(
                     f"Invalid official code format: {info_dict['Implementation']['Official code']}"
                 )
-            
+
             # Paper
             info_dict["Paper"] |= info_dict["Paper"].pop("Paper")
         elif "Document" in info_dict:
@@ -129,16 +132,19 @@ class Structuring:
 
         return info_dict
 
+
 def main():
-    ogi_dir_path = os.environ.get("OGI_DIR_PATH")
-    file_paths = sorted(glob.glob(os.path.join(ogi_dir_path, "docs/public/data/*.md")))
+    file_paths = sorted(glob.glob(os.path.join(DOCS_PATH, "*.md")))
 
     list_data = []
 
     list_data = []
     for file_path in file_paths:
         s = Structuring(file_path)
-        if "Paper" in s.info and s.info["Implementation"]["Basename"] in config.available_script_list:
+        if (
+            "Paper" in s.info
+            and s.info["Implementation"]["Basename"] in config.available_script_list
+        ):
             list_data.append(
                 [
                     f"[{s.info['Implementation']['Basename']}](./environments/{s.info['Implementation']['Basename']})",

@@ -2,6 +2,12 @@
 ## Demo abstract
 dreamgaussian predicts 3D data (Output) from single image (Input).
 
+## Demo implementation info
+- Implementation: [dreamgaussian/dreamgaussian](https://github.com/dreamgaussian/dreamgaussian)
+  - framework: Pytorch
+  - Official code: Yes
+  - License: MIT License
+
 ## Demo enviroment
 - GPU: RTX2080Ti
 
@@ -20,3 +26,6 @@ dreamgaussian predicts 3D data (Output) from single image (Input).
     bash image_to_mesh.sh <image path> <output dir path>
     # ex: bash image_to_mesh.sh data/test_rgba.png outputs/cube
     ```
+
+## Note
+None
