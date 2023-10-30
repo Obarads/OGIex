@@ -2,6 +2,12 @@
 ## Demo abstract
 gaussian-splatting outputs trained model (Output) from multi-view images (Input).
 
+## Demo implementation info
+- Implementation: [graphdeco-inria/gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting)
+  - framework: Pytorch
+  - Official code: Yes
+  - License: Other
+
 ## Demo enviroment
 - GPU: RTX2080Ti
 
@@ -19,3 +25,6 @@ gaussian-splatting outputs trained model (Output) from multi-view images (Input)
     ```bash
     bash viewer.sh <trained model path>
     ```
+
+## Note
+None

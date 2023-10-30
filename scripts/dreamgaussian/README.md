@@ -2,6 +2,12 @@
 ## Demo abstract
 dreamgaussian predicts 3D data (Output) from single image (Input).
 
+## Demo implementation info
+- Implementation: [dreamgaussian/dreamgaussian](https://github.com/dreamgaussian/dreamgaussian)
+  - framework: Pytorch
+  - Official code: Yes
+  - License: MIT License
+
 ## Demo enviroment
 - GPU: RTX2080Ti
 
