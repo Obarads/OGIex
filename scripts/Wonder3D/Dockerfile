@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+ARG BASE_IMAGE=nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -23,16 +23,19 @@ RUN chmod 777 -R /workspace
 ENV SHELL /bin/bash
 ENV LC_ALL=C
 
-# [Optional] User setting
+# User setting
 ARG UID
 ARG GID
+ARG USER=user
 RUN groupadd -g ${GID} host-group && \
-    useradd -u ${UID} --create-home -G sudo,root,${GID} -m user && \
+    useradd -u ${UID} --create-home -G sudo,root,${GID} -m ${USER} && \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER ${UID}
 RUN git config --global --add safe.directory /workspace
 
 # Python setting
+WORKDIR /home/${USER}
+COPY scripts_in_container scripts_in_container
 ENV MINICONDA3_SH_FILE=Miniconda3-py310_23.5.2-0-Linux-x86_64.sh
 RUN wget https://repo.anaconda.com/miniconda/${MINICONDA3_SH_FILE} --no-check-certificate -nv && \
     sh ${MINICONDA3_SH_FILE} -b && \
