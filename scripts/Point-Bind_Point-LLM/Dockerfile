@@ -30,6 +30,7 @@ RUN groupadd -g ${GID} host-group && \
     useradd -u ${UID} --create-home -G sudo,root,${GID} -m user && \
     echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER ${UID}
+RUN git config --global --add safe.directory /workspace
 
 # Python setting
 ENV MINICONDA3_SH_FILE=Miniconda3-py310_23.5.2-0-Linux-x86_64.sh
