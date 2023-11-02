@@ -19,3 +19,4 @@ The list of available scripts is below. `Dirname`, `Code`, and `Paper` columns d
 | [Wonder3D](./scripts/Wonder3D) | [Official](https://github.com/xxlong0/Wonder3D) | [Wonder3D: Single Image to 3D using Cross-Domain Diffusion](https://arxiv.org/abs/2310.15008)|
 | [stable-dreamfusion](./scripts/stable-dreamfusion) | [Unofficial](https://github.com/ashawkey/stable-dreamfusion) | [DreamFusion: Text-to-3D using 2D Diffusion](https://arxiv.org/abs/2209.14988) |
 | [zero123plus](./scripts/zero123plus) | [Official](https://github.com/SUDO-AI-3D/zero123plus) | [Zero123++: A Single Image to Consistent Multi-view Diffusion Base Model](https://arxiv.org/abs/2310.15110) |
+| [Point-Bind_Point-LLM](./scripts/Point-Bind_Point-LLM/) | [Official](https://github.com/ZiyuGuo99/Point-Bind_Point-LLM) | [Point-Bind & Point-LLM: Aligning Point Cloud with Multi-modality for 3D Understanding, Generation, and Instruction Following](https://arxiv.org/abs/2309.00615) |
