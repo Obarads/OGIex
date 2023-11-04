@@ -14,7 +14,7 @@ matplotlib
 rich
 scipy
 huggingface_hub
-diffusers
+diffusers==0.15.0
 transformers
 xatlas
 scikit-learn
@@ -25,3 +25,6 @@ tensorboard
 typed-argument-parser
 ipython
 rembg[gpu,cli]
+lovely-tensors
+PyMCubes
+trimesh
