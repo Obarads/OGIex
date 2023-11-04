@@ -1,4 +1,6 @@
 # dreamgaussian
+Created: 2023/09/30
+
 ## Demo abstract
 dreamgaussian predicts 3D data (Output) from single image (Input).
 

@@ -53,6 +53,7 @@ class GithubData:
             try:
                 self.github_license = repo.get_license().license.name
             except github.UnknownObjectException:
+                self.github_license = "Not described"
                 pass
 
 

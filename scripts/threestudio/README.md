@@ -1,10 +1,10 @@
-# nerfstudio
-Created: 2023/11/02
+# threestudio
+Created: 2023/11/04
 
 ## Demo abstract
 
 ## Demo implementation info
-- Implementation: [nerfstudio-project/nerfstudio](https://github.com/nerfstudio-project/nerfstudio)
+- Implementation: [threestudio-project/threestudio](https://github.com/threestudio-project/threestudio)
   - framework: Pytorch
   - Official code: Yes
   - License: Apache License 2.0

@@ -1,4 +1,6 @@
 # gaussian-splatting
+Created: 2023/09/12
+
 ## Demo abstract
 gaussian-splatting outputs trained model (Output) from multi-view images (Input).
 

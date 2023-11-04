@@ -1,4 +1,6 @@
 # Point-Bind_Point-LLM
+Created: 2023/09/09
+
 ## Demo abstract
 Point-Bind_Point-LLM calculates a similarity matrix (Output) from text and point clouds (Inputs).
 

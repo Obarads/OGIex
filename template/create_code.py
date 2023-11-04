@@ -76,7 +76,7 @@ def main():
     }
     data = Data(**data_dict)
 
-    new_script_dir = os.path.join(DIR_PATH, "..", data.github_dir)
+    new_script_dir = os.path.join(DIR_PATH, "../scripts/", data.github_dir)
     if os.path.exists(new_script_dir):
         raise ValueError(f"Already exists: {new_script_dir}")
 

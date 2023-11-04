@@ -1,4 +1,6 @@
 # stable-dreamfusion
+Created: 2023/09/23
+
 ## Demo abstract
 stable-dreamfusion predicts novel views of the object (360 degree video as Output) from text (Input).
 

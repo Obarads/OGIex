@@ -1,4 +1,6 @@
 # Wonder3D
+Created: 2023/11/02
+
 ## Demo abstract
 Wonder3D predicts novel views of the object (front, rear, left and right RGB and normal images as Output) from an image (Input).
 

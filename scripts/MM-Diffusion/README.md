@@ -1,4 +1,6 @@
 # MM-Diffusion
+Created: 2023/09/29
+
 ## Demo abstract
 MM-Diffusion predicts movies (Output) from audio (Input, Not confirmed.).
 
