@@ -11,7 +11,7 @@ pip list --format=freeze > requirements_all.txt
 ### Get and apply diff file
 ```bash
 # get diff
-git diff -- $FILE_PATH
+git diff -- <file path>
 # apply diff
 git apply code.diff
 ```

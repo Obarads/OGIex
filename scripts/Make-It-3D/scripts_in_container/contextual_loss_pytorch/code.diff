@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index 0098954..042818f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
+ 
+ setup(
+     name='contextual_loss_pytorch',
+-    version='latest',
++    version='0.1.0',
+     description='Contextual Loss w/ PyTorch',
+     packages=find_packages(exclude=('tests', 'doc')),
+     author='So Uchida',

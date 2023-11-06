@@ -4,6 +4,12 @@ Created: 2023/09/29
 ## Demo abstract
 MM-Diffusion predicts movies (Output) from audio (Input, Not confirmed.).
 
+## Demo implementation info
+- Implementation: [researchmm/MM-Diffusion](https://github.com/researchmm/MM-Diffusion)
+  - framework: Pytorch
+  - Official code: Yes
+  - License: MIT License
+
 ## Demo enviroment
 - GPU: RTX4090
 

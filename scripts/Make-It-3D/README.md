@@ -1,14 +1,11 @@
-# threestudio
-Created: 2023/11/04
-
+# Make-It-3D
 ## Demo abstract
-threestudio predicts novel views of the object (360 degree video as Output) from text (Input).
 
 ## Demo implementation info
-- Implementation: [threestudio-project/threestudio](https://github.com/threestudio-project/threestudio)
+- Implementation: [junshutang/Make-It-3D](https://github.com/junshutang/Make-It-3D)
   - framework: Pytorch
   - Official code: Yes
-  - License: Apache License 2.0
+  - License: Not described
 
 ## Demo enviroment
 - GPU: RTX2080Ti
