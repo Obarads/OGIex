@@ -18,4 +18,8 @@ threestudio predicts novel views of the object (360 degree video as Output) from
     ```bash
     bash docker_buildrun.sh
     ```
-
+2. Run a prediction demo on Host machine bash:
+    ```bash
+    bash text_to_novelview.sh <Input prompt> <Output path>
+    # ex: bash text_to_novelview.sh "a zoomed out DSLR photo of a baby bunny sitting on top of a stack of pancakes" outputs
+    ```

@@ -1,5 +1,5 @@
-IMAGE_NAME=ogiex_@{github_dir_lowercase@}
-CONTAINER_NAME=ogiex_@{github_dir_lowercase@}
+IMAGE_NAME=ogiex_one-2-3-45
+CONTAINER_NAME=ogiex_one-2-3-45
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -9,9 +9,9 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone @{github_url@} --recursive ./
-    git switch -d @{github_commit_hash@}
-    cp -r ../ogiex ./
+    git clone https://github.com/One-2-3-45/One-2-3-45 --recursive ./
+    git switch -d ee278d0964ba2d3bf66f94d05da0f83a747ba6c1
+    cp -r ../scripts_in_container ./ogiex/
 
     # make input and output folders for the demo script
     mkdir -p ogiex/inputs

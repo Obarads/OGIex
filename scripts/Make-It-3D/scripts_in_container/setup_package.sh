@@ -17,7 +17,8 @@ pip install -r requirements-post.txt
 cd /workspace
 git clone https://github.com/S-aiueo32/contextual_loss_pytorch.git
 cd contextual_loss_pytorch
-git apply ../scripts_in_container/code.diff
+git apply ../scripts_in_container/contextual_loss_pytorch/code.diff
+pip install ./
 
 # download dependencies in Make-It-3D
 cd /workspace
@@ -27,3 +28,5 @@ pip install ./raymarching
 cd /workspace
 git clone https://github.com/isl-org/DPT.git
 mkdir dpt_weights
+cd dpt_weights
+wget https://github.com/intel-isl/DPT/releases/download/1_0/dpt_hybrid-midas-501f0c75.pt

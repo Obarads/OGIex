@@ -10,4 +10,3 @@ pip install -r requirements-post.txt
 
 # add conda env
 echo "conda activate threestudio" >> ~/.bashrc
-

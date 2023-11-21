@@ -5,7 +5,7 @@ python create_code.py -g <github URL>
 
 ### Get package list
 ```bash
-pip list --format=freeze > requirements_all.txt
+pip list --format=freeze > requirements-all.txt
 ```
 
 ### Get and apply diff file

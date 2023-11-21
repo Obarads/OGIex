@@ -20,7 +20,9 @@ imageio
 imageio-ffmpeg
 timm
 einops
-open3d==0.9.0.0
+open3d==0.14.1
 torchmetrics
 tensorboard
 torch-ema
+transformers
+setuptools==65.0.0

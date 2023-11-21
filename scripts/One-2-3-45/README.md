@@ -1,11 +1,11 @@
-# Make-It-3D
+# One-2-3-45
 ## Demo abstract
 
 ## Demo implementation info
-- Implementation: [junshutang/Make-It-3D](https://github.com/junshutang/Make-It-3D)
+- Implementation: [One-2-3-45/One-2-3-45](https://github.com/One-2-3-45/One-2-3-45)
   - framework: Pytorch
   - Official code: Yes
-  - License: Not described
+  - License: Apache License 2.0
 
 ## Demo enviroment
 - GPU: RTX2080Ti
@@ -15,8 +15,7 @@
     ```bash
     bash docker_buildrun.sh
     ```
-2. Run a prediction demo on Host machine bash:
+2. Run the demo on the host machine bash:
     ```bash
-    bash image_to_novelview.sh <Input image path> <Output path>
-    # ex: bash image_to_novelview.sh data/teddy.png outputs/
+    bash image_to_novelview.sh
     ```

@@ -80,7 +80,8 @@ def main():
     if os.path.exists(new_script_dir):
         raise ValueError(f"Already exists: {new_script_dir}")
 
-    os.makedirs(os.path.join(new_script_dir, "scripts_in_container"))
+    ogiex_folder = os.path.join(new_script_dir, "ogiex/scripts_in_container")
+    os.makedirs(ogiex_folder)
     _ = create_doc(
         data,
         os.path.join(DIR_PATH, "template/README.md"),
@@ -99,17 +100,17 @@ def main():
     _ = create_doc(
         data,
         os.path.join(DIR_PATH, "template/scripts_in_container/demo.sh"),
-        os.path.join(new_script_dir, "scripts_in_container/demo.sh"),
+        os.path.join(ogiex_folder, "demo.sh"),
     )
     _ = create_doc(
         data,
         os.path.join(DIR_PATH, "template/scripts_in_container/setup_package.sh"),
-        os.path.join(new_script_dir, "scripts_in_container/setup_package.sh"),
+        os.path.join(ogiex_folder, "setup_package.sh"),
     )
     _ = create_doc(
         data,
         os.path.join(DIR_PATH, "template/scripts_in_container/requirements.txt"),
-        os.path.join(new_script_dir, "scripts_in_container/requirements.txt"),
+        os.path.join(ogiex_folder, "requirements.txt"),
     )
 
 

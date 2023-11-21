@@ -1,11 +1,11 @@
-# Make-It-3D
+# CoDeF
 ## Demo abstract
 
 ## Demo implementation info
-- Implementation: [junshutang/Make-It-3D](https://github.com/junshutang/Make-It-3D)
+- Implementation: [qiuyu96/CoDeF](https://github.com/qiuyu96/CoDeF)
   - framework: Pytorch
   - Official code: Yes
-  - License: Not described
+  - License: Other
 
 ## Demo enviroment
 - GPU: RTX2080Ti
@@ -15,8 +15,8 @@
     ```bash
     bash docker_buildrun.sh
     ```
-2. Run a prediction demo on Host machine bash:
+2. Run the style transformation demo for a video on the host machine bash:
     ```bash
-    bash image_to_novelview.sh <Input image path> <Output path>
-    # ex: bash image_to_novelview.sh data/teddy.png outputs/
+    bash video_to_video.sh <Output path>
+    # ex: bash video_to_video.sh outputs
     ```
