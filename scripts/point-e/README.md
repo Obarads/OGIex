@@ -1,5 +1,8 @@
 # point-e
+Created: 2023/11/21
+
 ## Demo abstract
+point-e predicts points of the object (a point cloud image as Output) from an image (Input).
 
 ## Demo implementation info
 - Implementation: [openai/point-e](https://github.com/openai/point-e)

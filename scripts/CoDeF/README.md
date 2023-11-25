@@ -1,5 +1,8 @@
 # CoDeF
+Created: 2023/11/21
+
 ## Demo abstract
+Codef predicts the style transformed video (Output) from a video and an image (Input).
 
 ## Demo implementation info
 - Implementation: [qiuyu96/CoDeF](https://github.com/qiuyu96/CoDeF)

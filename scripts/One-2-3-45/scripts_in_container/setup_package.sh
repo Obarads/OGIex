@@ -9,7 +9,7 @@ conda activate one-2-3-45
 echo "conda activate one-2-3-45" >> ~/.bashrc
 
 # download packages (requirements.txt)
-cd /workspace/scripts_in_container
+cd /workspace/ogiex/scripts_in_container
 pip install -r requirements.txt
 
 # download pre-trained model

@@ -26,3 +26,4 @@ tensorboard
 torch-ema
 transformers
 setuptools==65.0.0
+accelerate==0.24.1

@@ -80,7 +80,7 @@ def main():
     if os.path.exists(new_script_dir):
         raise ValueError(f"Already exists: {new_script_dir}")
 
-    ogiex_folder = os.path.join(new_script_dir, "ogiex/scripts_in_container")
+    ogiex_folder = os.path.join(new_script_dir, "scripts_in_container")
     os.makedirs(ogiex_folder)
     _ = create_doc(
         data,

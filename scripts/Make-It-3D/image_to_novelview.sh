@@ -1,15 +1,14 @@
-INPUT_PATH=$1
-OUTPUT_PATH=$1
+INPUT_FILE_PATH=$1
+OUTPUT_DIR_PATH=$2
 
 CONTAINER_NAME=ogiex_make-it-3d
-FILENAME=$(basename $INPUT_PATH)
-OUTPUT_BASENAME=$(basename $OUTPUT_PATH)
-OUTPUT_DIRNAME=$(dirname $OUTPUT_PATH)
-# FILENAME_WO_EXT="${FILENAME%.*}"
+INPUT_FILENAME=$(basename $INPUT_FILE_PATH)
+OUTPUT_BASENAME=$(basename $OUTPUT_DIR_PATH)
+OUTPUT_DIRNAME=$(dirname $OUTPUT_DIR_PATH)
+# FILENAME_WO_EXT="${INPUT_FILENAME%.*}"
 
-mkdir -p ${OUTPUT_PATH}
+mkdir -p ${OUTPUT_DIR_PATH}
 
-docker cp ${INPUT_PATH} ${CONTAINER_NAME}:/workspace/data_dev/
-docker exec ${CONTAINER_NAME} bash -i /workspace/scripts_in_container/demo.sh data_dev/${FILENAME} results
-docker cp ${CONTAINER_NAME}:/results/. ${OUTPUT_DIRNAME}
-
+cp ${INPUT_FILE_PATH} impl/ogiex/inputs/
+docker exec ${CONTAINER_NAME} bash -i /workspace/ogiex/scripts_in_container/demo.sh ogiex/inputs/${INPUT_FILENAME} ogiex/outputs/
+mv impl/results/ogiex/outputs/* ${OUTPUT_DIR_PATH}

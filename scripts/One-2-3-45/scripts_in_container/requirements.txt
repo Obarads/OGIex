@@ -64,3 +64,5 @@ ipykernel>=6.25.1
 panel>=1.2.1
 jupyter_bokeh>=3.0.7
 huggingface-hub==0.19.4
+inplace-abn==1.0.12
+git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0

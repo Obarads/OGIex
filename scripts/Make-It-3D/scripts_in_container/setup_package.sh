@@ -9,7 +9,7 @@ conda activate make-it-3d
 echo "conda activate make-it-3d" >> ~/.bashrc
 
 # download packages (requirements.txt)
-cd /workspace/scripts_in_container
+cd /workspace/ogiex/scripts_in_container
 pip install -r requirements.txt
 pip install -r requirements-post.txt
 
@@ -17,7 +17,7 @@ pip install -r requirements-post.txt
 cd /workspace
 git clone https://github.com/S-aiueo32/contextual_loss_pytorch.git
 cd contextual_loss_pytorch
-git apply ../scripts_in_container/contextual_loss_pytorch/code.diff
+git apply ../ogiex/scripts_in_container/contextual_loss_pytorch/code.diff
 pip install ./
 
 # download dependencies in Make-It-3D
