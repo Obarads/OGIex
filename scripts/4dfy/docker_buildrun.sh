@@ -1,5 +1,5 @@
-IMAGE_NAME=ogiex_@{github_dir_lowercase@}
-CONTAINER_NAME=ogiex_@{github_dir_lowercase@}
+IMAGE_NAME=ogiex_4dfy
+CONTAINER_NAME=ogiex_4dfy
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -9,8 +9,8 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone @{github_url@} --recursive ./
-    git switch -d @{github_commit_hash@}
+    git clone https://github.com/sherwinbahmani/4dfy --recursive ./
+    git switch -d f006803f620d044aa94fe203ccf833b0eb9c5cab
 
     # make input and output folders
     mkdir -p ogiex/inputs

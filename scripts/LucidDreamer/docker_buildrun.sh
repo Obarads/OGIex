@@ -1,5 +1,5 @@
-IMAGE_NAME=ogiex_@{github_dir_lowercase@}
-CONTAINER_NAME=ogiex_@{github_dir_lowercase@}
+IMAGE_NAME=ogiex_luciddreamer
+CONTAINER_NAME=ogiex_luciddreamer
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -9,13 +9,13 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone @{github_url@} --recursive ./
-    git switch -d @{github_commit_hash@}
+    git clone https://github.com/EnVision-Research/LucidDreamer --recursive ./
+    git switch -d fe499c0c2b1c070331ac54469eced2ad4aeda451
+    cp -r ../scripts_in_container ./
 
-    # make input and output folders
+    # make input and output folders for the demo script
     mkdir -p ogiex/inputs
     mkdir -p ogiex/outputs
-    cp -r ../scripts_in_container ./ogiex/
 
     # build and run the container
     cd ../
