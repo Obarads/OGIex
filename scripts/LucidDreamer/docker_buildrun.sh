@@ -11,11 +11,11 @@ else
     cd impl
     git clone https://github.com/EnVision-Research/LucidDreamer --recursive ./
     git switch -d fe499c0c2b1c070331ac54469eced2ad4aeda451
-    cp -r ../scripts_in_container ./
 
-    # make input and output folders for the demo script
+    # make input and output folders
     mkdir -p ogiex/inputs
     mkdir -p ogiex/outputs
+    cp -r ../scripts_in_container ./ogiex/
 
     # build and run the container
     cd ../

@@ -16,3 +16,7 @@ pip install -r requirements.txt
 cd /workspace/
 pip install submodules/diff-gaussian-rasterization/
 pip install submodules/simple-knn/
+
+# apply patch
+cd /workspace
+git apply ogiex/scripts_in_container/code.diff

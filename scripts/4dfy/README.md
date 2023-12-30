@@ -17,5 +17,5 @@
     ```
 2. Run the demo on Host machine bash:
     ```bash
-    bash demo.sh
+    # ex: bash text_to_novelview.sh "a dog riding a skateboard" outputs
     ```

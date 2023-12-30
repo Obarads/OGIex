@@ -7,5 +7,5 @@ OUTPUT_DIRNAME=$(dirname $OUTPUT_PATH)
 
 mkdir -p ${OUTPUT_DIRNAME}
 
-docker exec ${CONTAINER_NAME} bash -i /workspace/ogiex/scripts_in_container/demo.sh ${INPUT_TEXT} ogiex/outputs/${OUTPUT_FILENAME}
-cp impl/ogiex/outputs/${OUTPUT_FILENAME} ${OUTPUT_PATH}
+docker exec ${CONTAINER_NAME} bash -i /workspace/ogiex/scripts_in_container/demo.sh "${INPUT_TEXT}" ogiex/outputs
+mv impl/ogiex/outputs/* ${OUTPUT_PATH}
