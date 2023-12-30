@@ -1,0 +1,41 @@
+diff --git a/arguments/__init__.py b/arguments/__init__.py
+index 8f02c78..fe8de60 100644
+--- a/arguments/__init__.py
++++ b/arguments/__init__.py
+@@ -123,6 +123,7 @@ class ModelParams(ParamGroup):
+         self.data_device = "cuda"
+         self.eval = False
+         self.opt_path = None
++        self.output_base_folder_path: str = None
+         
+         # augmentation
+         self.sh_deg_aug_ratio = 0.1
+diff --git a/train.py b/train.py
+index b8d1718..2dc29c8 100644
+--- a/train.py
++++ b/train.py
+@@ -389,7 +389,7 @@ def prepare_output_and_logger(args):
+             unique_str=os.getenv('OAR_JOB_ID')
+         else:
+             unique_str = str(uuid.uuid4())
+-        args._model_path = os.path.join("./output/", args.workspace)
++        args._model_path = os.path.join(args.output_base_folder_path, args.workspace)
+         
+     # Set up output folder
+     print("Output folder: {}".format(args._model_path))
+@@ -493,6 +493,7 @@ if __name__ == "__main__":
+     parser.add_argument("--quiet", action="store_true")
+     parser.add_argument("--checkpoint_iterations", nargs="+", type=int, default=[])
+     parser.add_argument("--start_checkpoint", type=str, default = None)
++    parser.add_argument("--output_folder_path", type=str, default = "output")
+     # parser.add_argument("--device", type=str, default='cuda')
+ 
+     lp = ModelParams(parser)
+@@ -502,6 +503,7 @@ if __name__ == "__main__":
+     gp = GuidanceParams(parser)
+ 
+     args = parser.parse_args(sys.argv[1:])
++    lp.output_base_folder_path = args.output_folder_path
+ 
+     if args.opt is not None:
+         with open(args.opt) as f:
