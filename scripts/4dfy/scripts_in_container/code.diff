@@ -1,0 +1,25 @@
+diff --git a/launch.py b/launch.py
+index ae6f04b..ccc2dbc 100644
+--- a/launch.py
++++ b/launch.py
+@@ -59,6 +59,11 @@ def main() -> None:
+         help="whether to enable dynamic type checking",
+     )
+ 
++    parser.add_argument(
++        "--wo_timestamp",
++        action="store_false",
++    )
++
+     args, extras = parser.parse_known_args()
+ 
+     # set CUDA_VISIBLE_DEVICES then import pytorch-lightning
+@@ -99,7 +104,7 @@ def main() -> None:
+ 
+     # parse YAML config to OmegaConf
+     cfg: ExperimentConfig
+-    cfg = load_config(args.config, cli_args=extras, n_gpus=n_gpus)
++    cfg = load_config(args.config, cli_args=extras, n_gpus=n_gpus, use_timestamp=args.wo_timestamp)
+ 
+     pl.seed_everything(cfg.seed)
+ 

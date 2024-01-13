@@ -11,3 +11,7 @@ echo "conda activate @{github_dir_lowercase@}" >> ~/.bashrc
 # download packages (requirements.txt)
 cd /workspace/ogiex/scripts_in_container
 pip install -r requirements.txt
+
+# apply patch
+# cd /workspace
+# git apply ogiex/scripts_in_container/code.diff

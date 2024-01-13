@@ -19,3 +19,7 @@ pip install git+https://github.com/NVlabs/nvdiffrast.git
 cd /workspace
 git clone https://github.com/bytedance/MVDream extern/MVDream
 pip install -e extern/MVDream
+
+# apply patch
+cd /workspace
+git apply ogiex/scripts_in_container/code.diff

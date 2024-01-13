@@ -1,5 +1,6 @@
 # 4dfy
 ## Demo abstract
+4dfy predicts 4D novel views of object (a video as Output) from a text (Input).
 
 ## Demo implementation info
 - Implementation: [sherwinbahmani/4dfy](https://github.com/sherwinbahmani/4dfy)
@@ -17,5 +18,6 @@
     ```
 2. Run the demo on Host machine bash:
     ```bash
-    # ex: bash text_to_novelview.sh "a dog riding a skateboard" outputs
+    bash text_to_novelview.sh <an input prompt> <output dir name>
+    # ex: bash text_to_novelview.sh "a space shuttle launching" outputs/demo
     ```

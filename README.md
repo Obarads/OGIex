@@ -3,7 +3,14 @@
 ![tested](https://img.shields.io/badge/Tested_on-Ubuntu-red?style=flat-square)
 ![License](https://img.shields.io/github/license/Obarads/OGIex?color=green&style=flat-square)
 
-OGIex are scripts from building a docker image to running a demo of paper implementations by three or fewer commands and works.
+OGIex are scripts from building a docker image to running a demo of paper implementations by three or fewer commands and works. For example, you can get a prediction result of [stable-dreamsfusion](scripts/stable-dreamfusion/README.md) by two commands:
+
+```bash
+# stage 1: build a docker image and start a docker container.
+bash docker_buildrun.sh
+# stage 2: predict a 3D object from a text (a hamburger), and then output a result into output dir (outputs/hamburger).
+bash text_to_novelview.sh "a hamburger" outputs/hamburger
+```
 
 ## How to use
 1. Select a script dir in the `environments` dir.
