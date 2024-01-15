@@ -18,5 +18,5 @@ lmdb==1.3.0
 einops
 ipdb
 ninja
-gdown
+gdown==4.6.0
 iopath

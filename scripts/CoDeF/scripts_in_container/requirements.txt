@@ -3,7 +3,7 @@
 torch==2.0.0+cu117
 torchvision==0.15.1+cu117
 ninja
-gdown
+gdown==4.6.0
 pytorch_lightning==2.0.2
 easydict==1.10
 einops==0.6.1

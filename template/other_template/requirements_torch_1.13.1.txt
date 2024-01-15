@@ -1,0 +1,7 @@
+--find-links https://download.pytorch.org/whl/torch/
+--find-links https://download.pytorch.org/whl/torchvision/
+torch==1.13.1+cu117
+torchaudio==0.13.1
+torchvision==0.14.1+cu117
+ninja
+

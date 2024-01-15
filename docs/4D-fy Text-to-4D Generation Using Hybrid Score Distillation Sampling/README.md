@@ -12,8 +12,7 @@ Update: 2023/12/25
   - framework: Pytorch
   - Official code: Yes
   - License: Apache License 2.0
-
-- Keywords: 
+- Keywords: CV
 
 ## 🖥️ Setup commands to run the implementation
 - Test env.: GPU: RTX2080Ti

@@ -48,7 +48,7 @@ kornia
 git+https://github.com/openai/CLIP.git
 
 # for omnidata
-gdown
+gdown==4.6.0
 
 # for dpt
 timm

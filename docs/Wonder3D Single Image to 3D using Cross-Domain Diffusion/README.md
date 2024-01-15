@@ -12,7 +12,6 @@ Update: 2024/01/11
   - framework: Pytorch
   - Official code: Yes
   - License: MIT License
-
 - Keywords: CV
 
 ## 🖥️ Setup commands to run the implementation

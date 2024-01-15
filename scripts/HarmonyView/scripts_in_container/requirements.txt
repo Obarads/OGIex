@@ -1,0 +1,30 @@
+--find-links https://download.pytorch.org/whl/torch/
+--find-links https://download.pytorch.org/whl/torchvision/
+torch==1.10.2+cu113
+torchvision==0.11.3+cu113
+ninja
+pytorch_lightning==1.9.0
+Pillow==10.0.0
+opencv-python
+transformers
+tensorboard
+taming-transformers-rom1504 
+tqdm
+timm
+numpy
+kornia
+webdataset
+omegaconf
+einops
+scikit-image
+pymcubes
+carvekit-colab
+open3d
+trimesh
+easydict
+nerfacc
+transforms3d
+lpips
+mesh2sdf
+imageio-ffmpeg==0.4.7
+gdown==4.6.0
