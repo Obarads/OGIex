@@ -32,6 +32,7 @@ Please refer to `OGIex/scripts/Wonder3D/README.md` (or the [README.md on Github]
 - > To holistically improve the quality, consistency, and efficiency of single-view reconstruction tasks, we propose a cross-domain diffusion model that generates multi-view normal maps and the corresponding color images.
 - > Lastly, we introduce a geometry-aware normal fusion algorithm that extracts high-quality surfaces from the multi-view 2D representations.
 - Fig. 2 is overview of Wonder3D.
+- If you equations of Wonder3D, please refer to Section 3.2 in the paper.
 
 ![fig2](img/fig2.png)
 > Figure 2. Overview of Wonder3D. Given a single image, Wonder3D takes the input image, the text embedding produced by CLIP model [45], the camera parameters of multiple views, and a domain switcher as conditioning to generate consistent multi-view normal maps and color images. Subsequently, Wonder3D employs an innovative normal fusion algorithm to robustly reconstruct high-quality 3D geometry from the 2D representations, yielding high-fidelity textured meshes.

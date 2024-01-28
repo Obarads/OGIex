@@ -11,7 +11,7 @@ RUN apt-get update && \
     wget \
     gcc \
     apt-file \
-    libxml2 \
+    libxml2  && \
     rm -rf /var/lib/apt/lists/*
 
 # install cuda and cudnn
