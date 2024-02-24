@@ -18,7 +18,7 @@ Wonder3D predicts novel views of the object (front, rear, left and right RGB and
     ```bash
     bash docker_buildrun.sh
     ```
-2. Download [ckpts folder from sharepoint](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/xxlong_connect_hku_hk/EgSHPyJAtaJFpV_BjXM3zXwB-UMIrT4v-sQwGgw-coPtIA) into this folder, and then run a script on Host machine bash:
+2. Download [ckpts folder from sharepoint](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/xxlong_connect_hku_hk/Ej7fMT1PwXtKvsELTvDuzuMBebQXEkmf2IwhSjBWtKAJiA) into this folder, and then run a script on Host machine bash:
     ```bash
     bash set_ckpts.sh <ckpts zip file>
     # ex: bash set_ckpts.sh ckpts.zip
@@ -28,3 +28,4 @@ Wonder3D predicts novel views of the object (front, rear, left and right RGB and
     bash image_to_novelview.sh <output dir path>
     # ex: bash image_to_novelview.sh outputs/owl
     ```
+

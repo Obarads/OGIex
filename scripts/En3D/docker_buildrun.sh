@@ -1,5 +1,5 @@
-IMAGE_NAME=ogiex_wonder3d
-CONTAINER_NAME=ogiex_wonder3d
+IMAGE_NAME=ogiex_en3d
+CONTAINER_NAME=ogiex_en3d
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -9,8 +9,8 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone https://github.com/xxlong0/Wonder3D --recursive ./
-    git switch -d 18867f6252b55660a21df8893c64c042fa55c3fd
+    git clone https://github.com/menyifang/En3D --recursive ./
+    git switch -d 94017abafdae50e0ee17abc7d9ae6cb2a19cd27f
 
     # make input and output folders
     mkdir -p ogiex/inputs

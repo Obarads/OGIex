@@ -1,0 +1,10 @@
+diff --git a/configs/mvdiffusion-joint-ortho-6views.yaml b/configs/mvdiffusion-joint-ortho-6views.yaml
+index 91ae6ac..43661a0 100644
+--- a/configs/mvdiffusion-joint-ortho-6views.yaml
++++ b/configs/mvdiffusion-joint-ortho-6views.yaml
+@@ -1,4 +1,4 @@
+-pretrained_model_name_or_path: 'flamehaze1115/wonder3d-v1.0' # or './ckpts'
++pretrained_model_name_or_path: './ckpts' # or './ckpts'
+ revision: null
+ validation_dataset:
+   root_dir: "./example_images" # the folder path stores testing images

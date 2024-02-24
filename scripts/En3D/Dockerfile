@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
+ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,8 +14,9 @@ RUN apt-get update && \
     curl \
     libgl1-mesa-dev \
     libglib2.0-0 \
-    unzip \
-    wget && \
+    wget \
+    unzip && \
+    # cmake build-essential pkg-config libgoogle-perftools-dev && \ 
     rm -rf /var/lib/apt/lists/*
 
 # Workdirectory setting
