@@ -11,6 +11,7 @@ echo "conda activate wonder3d" >> ~/.bashrc
 # download packages (requirements.txt and other packages)
 cd /workspace/ogiex/scripts_in_container
 pip install -r requirements.txt
+pip install nerfacc==0.3.3 -f https://nerfacc-bucket.s3.us-west-2.amazonaws.com/whl/torch-1.13.0_cu117.html
 pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
 # download SAM
