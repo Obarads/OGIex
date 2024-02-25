@@ -11,7 +11,7 @@ zero123plus predicts novel views of the object (a multi-view image as Output) fr
   - License: Apache License 2.0
 
 ## Demo enviroment
-- GPU: RTX2080Ti
+- GPU: RTX4090
 
 ## Demo process
 1. Build a docker image and container, and then start the container on Host machine bash:
@@ -23,4 +23,3 @@ zero123plus predicts novel views of the object (a multi-view image as Output) fr
     bash image_to_novelview.sh <output dir path>
     # ex: bash image_to_novelview.sh outputs
     ```
-

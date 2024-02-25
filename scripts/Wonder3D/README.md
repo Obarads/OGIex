@@ -2,7 +2,7 @@
 Created: 2023/11/02
 
 ## Demo abstract
-Wonder3D predicts novel views of the object (front, rear, left and right RGB and normal images as Output) from an image (Input).
+Wonder3D predicts a 3D model (Output) from an image (Input).
 
 ## Demo implementation info
 - Implementation: [xxlong0/Wonder3D](https://github.com/xxlong0/Wonder3D)

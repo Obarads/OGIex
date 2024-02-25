@@ -2,6 +2,8 @@ ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
+ENV TCNN_CUDA_ARCHITECTURES=90;89;86;80;75;70;61;60
 
 # install ubuntu package and clean
 RUN apt-get update && \
