@@ -12,4 +12,4 @@ accelerate launch --config_file 1gpu.yaml test_mvdiffusion_seq.py \
             validation_dataset.filepaths=["${FILENAME}"] save_dir=${OUTPUT_PATH}
 
 cd /workspace/instant-nsr-pl
-python launch.py --config configs/neuralangelo-ortho-wmask.yaml --gpu 0 --train dataset.root_dir=${OUTPUT_PATH}/cropsize-192-cfg1.0/ dataset.scene="${FILENAME_WO_EXT}"
+python launch.py --config configs/neuralangelo-ortho-wmask.yaml --exp_dir ${OUTPUT_PATH}/exp --gpu 0 --train dataset.root_dir=${OUTPUT_PATH}/cropsize-192-cfg1.0/ dataset.scene="${FILENAME_WO_EXT}"

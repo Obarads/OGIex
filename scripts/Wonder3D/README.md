@@ -25,7 +25,6 @@ Wonder3D predicts a 3D model (Output) from an image (Input).
     ```
 3. Run a prediction demo on Host machine bash:
     ```bash
-    bash image_to_novelview.sh <output dir path>
-    # ex: bash image_to_novelview.sh outputs/owl
+    bash image_to_3d.sh <input png file path> <output dir path>
+    # ex: bash image_to_3d.sh impl/example_images/owl.png outputs/owl
     ```
-
