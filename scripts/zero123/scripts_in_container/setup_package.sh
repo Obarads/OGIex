@@ -20,6 +20,9 @@ pip install -e taming-transformers/
 git clone https://github.com/openai/CLIP.git
 pip install -e CLIP/
 
+cd /workspace/3drec/
+pip install -r requirements.txt
+
 # https://huggingface.co/cvlab/zero123-weights/tree/main
 cd /workspace/zero123/
 # iteration=300000
