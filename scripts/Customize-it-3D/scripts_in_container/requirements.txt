@@ -1,0 +1,53 @@
+--find-links https://download.pytorch.org/whl/torch/
+--find-links https://download.pytorch.org/whl/torchvision/
+--find-links https://download.pytorch.org/whl/torchaudio/
+torch==2.0.1+cu117
+torchvision==0.15.2+cu117
+torchaudio==2.0.2+cu117
+ninja
+
+trimesh
+opencv-python
+tensorboardX
+numpy
+pandas
+tqdm
+matplotlib
+PyMCubes
+rich
+dearpygui
+scipy
+xatlas
+scikit-learn
+imageio
+imageio-ffmpeg
+einops
+open3d==0.16.0.0
+torchmetrics
+tensorboard
+torch-ema
+natsort
+
+# new for mesh
+git+https://github.com/NVlabs/nvdiffrast/
+pymeshlab # pymeshlab==2022.2.post3
+
+# for preprocess
+carvekit-colab
+easydict
+gdown
+timm==0.6.7 # required by MiDaS
+rembg
+
+# for stable-diffusion
+huggingface_hub
+diffusers >= 0.9.0
+accelerate # required by textual inversion 
+transformers
+
+# for zero123
+omegaconf
+pytorch-lightning
+kornia
+git+https://github.com/openai/CLIP.git
+taming-transformers-rom1504
