@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ogiex_cuda:cuda11.1_cudnn8.0_ubuntu18.04
+ARG BASE_IMAGE=nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,6 +13,7 @@ RUN apt-get update && \
     wget \
     libglib2.0-0 \
     libxtst6 \
+    libgl1-mesa-dev \
     libxrender1 \
     libsm6 && \
     rm -rf /var/lib/apt/lists/*
@@ -38,3 +39,4 @@ RUN wget https://repo.anaconda.com/miniconda/${MINICONDA3_SH_FILE} --no-check-ce
     sh ${MINICONDA3_SH_FILE} -b && \
     rm ${MINICONDA3_SH_FILE} && \
     ~/miniconda3/bin/conda init bash
+

@@ -1,5 +1,5 @@
 --find-links https://download.pytorch.org/whl/torch/
-torch==1.10.2+cu111
+torch==1.10.2+cu113
 ninja
 pytorch_lightning==1.9.0
 Pillow==10.0.0
