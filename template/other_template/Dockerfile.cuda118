@@ -38,3 +38,6 @@ RUN wget https://repo.anaconda.com/miniconda/${MINICONDA3_SH_FILE} --no-check-ce
     rm ${MINICONDA3_SH_FILE} && \
     ~/miniconda3/bin/conda init bash
 
+# Option: python settings
+# COPY Dockerfile.cuda118.torch201 /tmp/
+# RUN bash /tmp/Dockerfile.cuda118.torch201/setup_packages.sh

@@ -21,7 +21,7 @@ class Data:
     github_commit_hash_date: str
     github_license: str
     update_date: str
-    base_nvidia_image: str
+    base_image: str
 
 
 def create_doc(data: Data, temp_article_path: str, save_path: str = None):
@@ -55,7 +55,7 @@ def main():
     # parser.add_argument("--arxiv_url", "-a")
     parser.add_argument("--github_url", "-g")
     parser.add_argument(
-        "--base_nvidia_image",
+        "--base_image",
         "-b",
         default="nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04",
     )
@@ -65,14 +65,13 @@ def main():
     # arxiv_url = "https://arxiv.org/abs/1612.00593"
     github_url = args.github_url
     # github_url = "https://github.com/charlesq34/pointnet"
-    base_nvidia_image = args.base_nvidia_image
-    # base_nvidia_image = "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04"
+    base_image = args.base_image
 
     # arxiv_data = vars(ArxivData(arxiv_url))
     github_data = vars(GithubData(github_url))
     data_dict = github_data | {
         "update_date": datetime.datetime.now().strftime("%Y/%m/%d"),
-        "base_nvidia_image": base_nvidia_image,
+        "base_image": base_image,
     }
     data = Data(**data_dict)
 
@@ -112,6 +111,9 @@ def main():
         os.path.join(DIR_PATH, "template/scripts_in_container/requirements.txt"),
         os.path.join(ogiex_folder, "requirements.txt"),
     )
+
+    # Git clone
+    os.system(f"git clone {data.github_url} {new_script_dir}/impl")
 
 
 if __name__ == "__main__":

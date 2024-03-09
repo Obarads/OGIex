@@ -4,15 +4,14 @@ cd /workspace
 
 # setup python and packages
 cd /workspace
-conda create -y -n x-dreamer python=3.9
-conda activate x-dreamer
-echo "conda activate x-dreamer" >> ~/.bashrc
+conda create -y -n richdreamer python=3.9
+conda activate richdreamer
+echo "conda activate richdreamer" >> ~/.bashrc
 
 # download packages (requirements.txt)
 cd /workspace/ogiex/scripts_in_container
-pip install -r requirements.txt
+pip install -r requirements_3d.txt
 
-pip install git+https://github.com/NVlabs/nvdiffrast.git
 pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
 # apply patch

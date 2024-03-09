@@ -1,0 +1,50 @@
+--find-links https://download.pytorch.org/whl/torch/
+--find-links https://download.pytorch.org/whl/torchvision/
+torch==2.0.1+cu118
+torchvision==0.15.2+cu118
+ninja
+av
+modelscope==1.9.5
+pymeshlab==2022.2.post2
+open-clip-torch==2.0.2
+nerfacc @ git+https://github.com/KAIR-BAIR/nerfacc.git@d84cdf3afd7dcfc42150e0f0506db58a5ce62812
+nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git@c5caf7bdb8a2448acc491a9faa47753972edd380
+envlight @ git+https://github.com/ashawkey/envlight.git@ef492c03711c87287549a0283ee51199f45cbea4
+
+# Three studio
+## general
+lightning==2.0.0
+omegaconf==2.3.0
+jaxtyping
+typeguard
+diffusers
+transformers==4.28.1
+accelerate
+opencv-python
+tensorboard
+matplotlib
+imageio
+imageio[ffmpeg]
+trimesh
+libigl
+xatlas
+trimesh[easy]
+networkx
+pysdf
+## deepfloyd
+xformers==0.0.20
+bitsandbytes
+sentencepiece
+safetensors
+huggingface_hub==0.21.4
+libigl
+xatlas
+trimesh
+networkx
+PyMCubes
+wandb
+## for zero123
+einops
+kornia
+taming-transformers-rom1504
+git+https://github.com/openai/CLIP.git
