@@ -1,10 +1,11 @@
-IMAGE_NAME=@{image_name@}
-CONTAINER_NAME=ogiex_@{github_dir_lowercase@}
+IMAGE_NAME=ogiex/3d:11.8.0-cudnn8-devel-ubuntu22.04-torch201
+CONTAINER_NAME=ogiex_triposr
 
 if docker images --format '{{.Repository}}:{{.Tag}}' | grep -Eq "^${IMAGE_NAME}$"; then
     echo "${IMAGE_NAME} is already exist. Skip building the image.."
 else
-    docker build . -t ${IMAGE_NAME} -f @{dockerfile_path_in_model_dir@} --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+    docker build . -t ${IMAGE_NAME} -f env/Dockerfile --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+fi
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -14,8 +15,8 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone @{github_url@} --recursive ./
-    git switch -d @{github_commit_hash@}
+    git clone https://github.com/VAST-AI-Research/TripoSR --recursive ./
+    git switch -d 00319be2f08ddd06a43edf05fbbd46b5ea1e9228
 
     # make input and output folders
     mkdir -p ogiex/inputs
@@ -25,5 +26,5 @@ else
     # build and run the container
     cd ../
     docker run -dit --name ${CONTAINER_NAME} --gpus all -v ${PWD}/impl:/workspace ${IMAGE_NAME}
-    # docker exec ${CONTAINER_NAME} bash /workspace/ogiex/scripts_in_container/setup_package.sh
+    docker exec ${CONTAINER_NAME} bash /workspace/ogiex/scripts_in_container/setup_package.sh
 fi
