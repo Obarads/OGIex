@@ -61,6 +61,7 @@ The list of available scripts is below. `Dirname`, `Code`, and `Paper` columns d
 |T・t|||
 | [text2room](./scripts/text2room/README.md) | [Official](https://github.com/lukasHoel/text2room) | [Text2Room: Extracting Textured 3D Meshes from 2D Text-to-Image Models](https://arxiv.org/abs/2303.11989) |
 | [threestudio](./scripts/threestudio/)                   | [Official](https://github.com/threestudio-project/threestudio)    | [threestudio](https://github.com/threestudio-project/threestudio)                                                                                                |
+| [TripoSR](./scripts/TripoSR/README.md) | [Official](https://github.com/VAST-AI-Research/TripoSR) | [TripoSR: Fast 3D Object Reconstruction from a Single Image](https://arxiv.org/abs/2403.02151)
 |W・w|||
 | [Wonder3D](./scripts/Wonder3D/README.md)                          | [Official](https://github.com/xxlong0/Wonder3D)                   | [Wonder3D: Single Image to 3D using Cross-Domain Diffusion](https://arxiv.org/abs/2310.15008)                                                                    |
 |Z・z|||
