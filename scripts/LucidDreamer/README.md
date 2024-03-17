@@ -19,5 +19,5 @@ LucidDreamer predicts novel views of the object (360 degree video as Output) fro
 2. Run a prediction demo on Host machine bash:
     ```bash
     bash text_to_novelview.sh <config_file_path> <output_dir_path>
-    # ex: bash text_to_novelview.sh impl/configs/axe.yaml ouputs/
+    # ex: bash text_to_novelview.sh impl/configs/axe.yaml outputs/
     ```
