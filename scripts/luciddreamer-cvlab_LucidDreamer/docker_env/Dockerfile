@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=@{base_nvidia_image@}
+ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -43,3 +43,6 @@ RUN wget https://repo.anaconda.com/miniconda/${MINICONDA3_SH_FILE} --no-check-ce
     sh ${MINICONDA3_SH_FILE} -b && \
     rm ${MINICONDA3_SH_FILE} && \
     ~/miniconda3/bin/conda init bash
+
+COPY scripts_in_container /tmp/
+RUN bash /tmp/setup_package.sh

@@ -1,5 +1,6 @@
 # X-Dreamer
 ## Demo abstract
+X-Dreamer predicts a 3D model (Output, ply file) from a text (Input, a config file).
 
 ## Demo implementation info
 - Implementation: [xmu-xiaoma666/X-Dreamer](https://github.com/xmu-xiaoma666/X-Dreamer)
@@ -15,4 +16,8 @@
     ```bash
     bash docker_buildrun.sh
     ```
-
+2. Run demo.
+    ```bash
+    bash text_to_mesh.sh <input file path> <output folder path>
+    # ex: bash text_to_mesh.sh impl/configs/cupcake_geometry.json outputs
+    ```

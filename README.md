@@ -64,6 +64,8 @@ The list of available scripts is below. `Dirname`, `Code`, and `Paper` columns d
 | [TripoSR](./scripts/TripoSR/README.md) | [Official](https://github.com/VAST-AI-Research/TripoSR) | [TripoSR: Fast 3D Object Reconstruction from a Single Image](https://arxiv.org/abs/2403.02151)
 |W・w|||
 | [Wonder3D](./scripts/Wonder3D/README.md)                          | [Official](https://github.com/xxlong0/Wonder3D)                   | [Wonder3D: Single Image to 3D using Cross-Domain Diffusion](https://arxiv.org/abs/2310.15008)                                                                    |
+|X・x|||
+| [X-Dreamer](./scripts/X-Dreamer/README.md) | [Official](https://github.com/xmu-xiaoma666/X-Dreamer) | [X-Dreamer: Creating High-quality 3D Content by Bridging the Domain Gap Between Text-to-2D and Text-to-3D Generation](https://arxiv.org/abs/2312.00085) | 
 |Z・z|||
 | [zero123](./scripts/zero123/README.md) | [Official](https://github.com/cvlab-columbia/zero123) | [Zero-1-to-3: Zero-shot One Image to 3D Object](https://arxiv.org/abs/2303.11328) |
 | [zero123plus](./scripts/zero123plus/README.md)                    | [Official](https://github.com/SUDO-AI-3D/zero123plus)             | [Zero123++: A Single Image to Consistent Multi-view Diffusion Base Model](https://arxiv.org/abs/2310.15110)                                                      |

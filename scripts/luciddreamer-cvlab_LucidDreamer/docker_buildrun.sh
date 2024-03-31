@@ -1,10 +1,13 @@
-IMAGE_NAME=@{image_name@}
-CONTAINER_NAME=ogiex_@{github_dir_lowercase@}
+IMAGE_NAME=ogiex/3d:11.8.0-cudnn8-devel-ubuntu22.04-torch201
+CONTAINER_NAME=ogiex_luciddreamer-cvlab_LucidDreamer
 
 if docker images --format '{{.Repository}}:{{.Tag}}' | grep -Eq "^${IMAGE_NAME}$"; then
     echo "${IMAGE_NAME} is already exist. Skip building the image.."
 else
-    docker build . -t ${IMAGE_NAME} -f @{dockerfile_path_in_model_dir@} --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+    cd docker_env
+    docker build . -t ${IMAGE_NAME} -f Dockerfile --build-arg UID=$(id -u) --build-arg GID=$(id -g)
+    cd ..
+fi
 
 if docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER_NAME}$"; then
     docker start ${CONTAINER_NAME}
@@ -14,8 +17,8 @@ else
 
     # git clone and switch the impl. repo and copy the scripts_in_container folder
     cd impl
-    git clone @{github_url@} --recursive ./
-    git switch -d @{github_commit_hash@}
+    git clone https://github.com/luciddreamer-cvlab/LucidDreamer --recursive ./
+    git switch -d 76ed990fad840e298a3e586697cb866e89fa94e2
 
     # make input and output folders
     mkdir -p ogiex/inputs

@@ -23,9 +23,9 @@ class Data:
     github_commit_hash_date: str
     github_license: str
     update_date: str
-    base_image: str
     image_name: str
-    dockerfile_path_in_model_dir: str
+    container_name: str
+    dockerfile_path_in_model_dir: str = None
 
 
 def create_doc(data: Data, temp_article_path: str, save_path: str = None):
@@ -53,21 +53,21 @@ def create_doc(data: Data, temp_article_path: str, save_path: str = None):
 
     return article
 
-def create_dockerfile_docs(base_image, path, save_dir_path):
-    env_path = os.path.join(path, base_image)
+def create_dockerfile_docs(env_path, save_dir_path):
     shutil.copytree(env_path, save_dir_path)
     with open(os.path.join(env_path, "setting.yaml"), "r") as f:
         setting = yaml.safe_load(f)
-    return setting["name"], "Dockerfile"
+    return setting["name"], os.path.basename(save_dir_path.rstrip("/")) + "/Dockerfile"
 
 def main():
     parser = argparse.ArgumentParser()
     # parser.add_argument("--arxiv_url", "-a")
+    parser.add_argument("--add_username", "-u", action="store_true")
     parser.add_argument("--github_url", "-g", type=str, required=True)
     parser.add_argument(
-        "--base_image",
+        "--env_path",
         "-b",
-        default="env/Dockerfile.cuda118.torch201",
+        default="../env_templates/full/Dockerfile_cuda118.torch201/",
         # default=None,
     )
     args = parser.parse_args()
@@ -76,26 +76,31 @@ def main():
     # arxiv_url = "https://arxiv.org/abs/1612.00593"
     github_url = args.github_url
     # github_url = "https://github.com/charlesq34/pointnet"
-    base_image = args.base_image
+    env_path= args.env_path
+    add_username = args.add_username
 
     # arxiv_data = vars(ArxivData(arxiv_url))
     github_data = GithubData(github_url)
+    if add_username:
+        foldername_in_script_dir = github_data.github_userdir.replace("/", "_")
+        container_name = foldername_in_script_dir
+    else:
+        foldername_in_script_dir = github_data.github_dir
+        container_name = github_data.github_dir_lowercase.lower()
 
-    new_script_dir = os.path.join(DIR_PATH, "../scripts/", github_data.github_dir)
+    new_script_dir = os.path.join(DIR_PATH, "../../scripts/", foldername_in_script_dir)
     if os.path.exists(new_script_dir):
-            raise ValueError(f"Already exists: {new_script_dir}")
+        raise ValueError(f"Already exists: {new_script_dir}")
 
-    image_name, dockerfile_path_in_model_dir = create_dockerfile_docs(
-        base_image,
-        os.path.join(DIR_PATH, "other_template"),
-        os.path.join(new_script_dir, "env"),
+    image_name, _ = create_dockerfile_docs(
+        env_path,
+        os.path.join(new_script_dir, "docker_env"),
     )
 
     data_dict = vars(github_data) | {
         "update_date": datetime.datetime.now().strftime("%Y/%m/%d"),
-        "base_image": base_image,
+        "container_name": container_name,
         "image_name": image_name,
-        "dockerfile_path_in_model_dir": dockerfile_path_in_model_dir,
     }
     data = Data(**data_dict)
 
@@ -104,27 +109,37 @@ def main():
     os.makedirs(ogiex_folder)
     _ = create_doc(
         data,
-        os.path.join(DIR_PATH, "template/README.md"),
+        os.path.join(DIR_PATH, "../script_template/README.md"),
         os.path.join(new_script_dir, "README.md"),
     )
     _ = create_doc(
         data,
-        os.path.join(DIR_PATH, "template/docker_buildrun.sh"),
+        os.path.join(DIR_PATH, "../script_template/docker_buildrun.sh"),
         os.path.join(new_script_dir, "docker_buildrun.sh"),
     )
     _ = create_doc(
         data,
-        os.path.join(DIR_PATH, "template/scripts_in_container/demo.sh"),
+        os.path.join(DIR_PATH, "../script_template/file_to_folder.sh"),
+        os.path.join(new_script_dir, "file_to_folder.sh"),
+    )
+    _ = create_doc(
+        data,
+        os.path.join(DIR_PATH, "../script_template/text_to_folder.sh"),
+        os.path.join(new_script_dir, "text_to_folder.sh"),
+    )
+    _ = create_doc(
+        data,
+        os.path.join(DIR_PATH, "../script_template/scripts_in_container/demo.sh"),
         os.path.join(ogiex_folder, "demo.sh"),
     )
     _ = create_doc(
         data,
-        os.path.join(DIR_PATH, "template/scripts_in_container/setup_package.sh"),
+        os.path.join(DIR_PATH, "../script_template/scripts_in_container/setup_package.sh"),
         os.path.join(ogiex_folder, "setup_package.sh"),
     )
     _ = create_doc(
         data,
-        os.path.join(DIR_PATH, "template/scripts_in_container/requirements.txt"),
+        os.path.join(DIR_PATH, "../script_template/scripts_in_container/requirements.txt"),
         os.path.join(ogiex_folder, "requirements.txt"),
     )
 

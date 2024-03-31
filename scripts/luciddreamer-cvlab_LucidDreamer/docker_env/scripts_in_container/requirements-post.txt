@@ -1,0 +1,10 @@
+git+https://github.com/openai/CLIP.git
+git+https://github.com/KAIR-BAIR/nerfacc.git@v0.5.2
+# nerfacc @ git+https://github.com/KAIR-BAIR/nerfacc.git@d84cdf3afd7dcfc42150e0f0506db58a5ce62812
+# git+https://github.com/NVlabs/nvdiffrast.git
+nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git@c5caf7bdb8a2448acc491a9faa47753972edd380
+# git+https://github.com/ashawkey/envlight.git
+envlight @ git+https://github.com/ashawkey/envlight.git@ef492c03711c87287549a0283ee51199f45cbea4
+git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+diffusers==0.21.4
+transformers==4.28.1
