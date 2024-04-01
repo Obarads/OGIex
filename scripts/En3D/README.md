@@ -1,5 +1,6 @@
 # En3D
 ## Demo abstract
+En3D can run an app demo with gradio.
 
 ## Demo implementation info
 - Implementation: [menyifang/En3D](https://github.com/menyifang/En3D)
@@ -15,4 +16,7 @@
     ```bash
     bash docker_buildrun.sh
     ```
-
+2. Run demo.
+    ```bash
+    bash run_app.sh
+    ```

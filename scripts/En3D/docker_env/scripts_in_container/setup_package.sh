@@ -7,11 +7,10 @@ cd /workspace
 conda activate base
 
 # download packages (requirements.txt)
-cd /workspace/ogiex/scripts_in_container
+cd /tmp
 pip install -r requirements.txt
+pip install -r requirements-post.txt
 
 # apply patch
 # cd /workspace
 # git apply ogiex/scripts_in_container/code.diff
-
-sudo apt update && sudo apt install libxrender1 libxi6
