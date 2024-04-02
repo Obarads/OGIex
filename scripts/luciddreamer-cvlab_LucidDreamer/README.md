@@ -15,4 +15,8 @@
     ```bash
     bash docker_buildrun.sh
     ```
-
+2. Run demo.
+    ```bash
+    bash text_to_3d.sh <input_file_path> <output_file_path>
+    # ex: bash text_to_3d.sh impl/examples/cabin.txt outputs
+    ```

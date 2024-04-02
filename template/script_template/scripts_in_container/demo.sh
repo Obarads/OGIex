@@ -4,4 +4,4 @@ OUTPUT_PATH=$2
 INPUT_PATH=$(realpath $INPUT_PATH)
 OUTPUT_PATH=$(realpath $OUTPUT_PATH)
 
-/workspace
+cd /workspace
