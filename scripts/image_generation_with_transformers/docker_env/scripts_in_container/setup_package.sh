@@ -10,6 +10,5 @@ conda activate base
 cd /tmp
 pip install -r requirements.txt
 
-# apply patch
-# cd /workspace
-# git apply ogiex/scripts_in_container/code.diff
+
+cat 'export HF_HOME="/workspace/huggingface_cache"' >> ~/.bashrc
