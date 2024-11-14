@@ -19,6 +19,10 @@ RUN apt-get update && \
     # cmake build-essential pkg-config libgoogle-perftools-dev && \ 
     rm -rf /var/lib/apt/lists/*
 
+# Get git lfs # https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN apt-get install git-lfs && git lfs install
+
 # Workdirectory setting
 WORKDIR /workspace
 RUN chmod 777 -R /workspace
